@@ -8,7 +8,7 @@
             let button = document.getElementById("test");
             button.onclick = (() => {
                 console.log("click")
-                navigator.serviceWorker.register('/my_workers/worker1.js', {
+                navigator.serviceWorker.register('/sw.js', {
                     // The scope cannot be parent to the script url
                     scope: './'
                 }).then(()=>{
