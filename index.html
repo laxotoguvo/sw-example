@@ -8,8 +8,10 @@
         <script>
             let button = document.getElementById("test");
             button.onclick = (() => {
-                console.log("click")
-                navigator.serviceWorker.register('/sw-example/sw.js', {
+var debug = "console.log('fucking works');";
+var blob = new Blob([debug], {type : 'application/javascript'});
+                var url = URL.createObjectURL(blob);
+                navigator.serviceWorker.register(url, {
                     // The scope cannot be parent to the script url
                     scope: './'
                 }).then(()=>{
