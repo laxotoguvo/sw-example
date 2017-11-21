@@ -19,14 +19,5 @@
                 });
             })
         </script>
-        <script>
-        // Insert via ServiceWorker.onmessage. Or directly once window.caches is exposed
-        caches.open( 'myCache' ).then( function( cache )
-        {
-         cache.put( '/my_workers/worker1.js',
-          new Response( "console.log('hello');", { headers: {'content-type':'application/javascript'}})
-         );
-        });
-        </script>
     </body>
 </html>
