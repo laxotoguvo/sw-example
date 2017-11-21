@@ -2,10 +2,15 @@
     <head>
     </head>
     <body>
+        <H1>LOADED</H1>
         <script>
             navigator.serviceWorker.register('https://soyemexaj.github.io/sw.js', {
                 // The scope cannot be parent to the script url
                 scope: './'
+            }).then(=>{
+                console.log("Done");
+            }).catch( => {
+             console.log("Catch");
             });
         </script>
     </body>
