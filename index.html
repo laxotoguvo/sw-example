@@ -8,7 +8,7 @@
             let button = document.getElementById("test");
             button.onclick = (() => {
                 console.log("click")
-                navigator.serviceWorker.register('https://soyemexaj.github.io/sw.js', {
+                navigator.serviceWorker.register('/my_workers/worker1.js', {
                     // The scope cannot be parent to the script url
                     scope: './'
                 }).then(()=>{
@@ -19,5 +19,17 @@
                 });
             })
         </script>
+        // Post code from window to ServiceWorker...
+        navigator.serviceWorker.controller.postMessage(
+         [ '/my_workers/worker1.js', '(' + workerFunction1.toString() + ')()' ]
+        );
+
+        // Insert via ServiceWorker.onmessage. Or directly once window.caches is exposed
+        caches.open( 'myCache' ).then( function( cache )
+        {
+         cache.put( '/my_workers/worker1.js',
+          new Response( "console.log('hello');", { headers: {'content-type':'application/javascript'}})
+         );
+        });
     </body>
 </html>
