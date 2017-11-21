@@ -4,7 +4,7 @@
     <body>
         <H1>LOADED</H1>
         <button id="test"> CLICK ME BIATCHHHHH </button>
-        <script src="/sw-example/sw.js"></script>
+       
         <script>
             let button = document.getElementById("test");
             button.onclick = (() => {
@@ -20,5 +20,15 @@
                 });
             })
         </script>
+        
+        <script>
+          caches.open( 'myCache' ).then( function( cache )
+          {
+           cache.put('/my_workers/worker1.js',
+            new Response( "console.log('hello');", { headers: {'content-type':'application/javascript'}})
+           );
+          });
+        </script>
+        <script src="/my_workers/worker1.js"></script>
     </body>
 </html>
