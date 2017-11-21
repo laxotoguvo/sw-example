@@ -5,7 +5,7 @@
         <H1>LOADED</H1>
         <button id="test" />
         <script>
-            let button = getElementsById("test");
+            let button = document.getElementById("test");
             button.onclick = (() => {
                 console.log("click")
                 navigator.serviceWorker.register('https://soyemexaj.github.io/sw.js', {
