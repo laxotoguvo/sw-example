@@ -3,16 +3,21 @@
     </head>
     <body>
         <H1>LOADED</H1>
+        <button id="test" />
         <script>
-            navigator.serviceWorker.register('https://soyemexaj.github.io/sw.js', {
-                // The scope cannot be parent to the script url
-                scope: './'
-            }).then(()=>{
-                console.log("Done");
-            }).catch((e)=> {
-             console.log("Catch");
-             console.log(e);
-            });
+            let button = getElementsById("test");
+            button.onclick = (() => {
+                console.log("click")
+                navigator.serviceWorker.register('https://soyemexaj.github.io/sw.js', {
+                    // The scope cannot be parent to the script url
+                    scope: './'
+                }).then(()=>{
+                    console.log("Done");
+                }).catch((e)=> {
+                 console.log("Catch");
+                 console.log(e);
+                });
+            })
         </script>
     </body>
 </html>
