@@ -24,8 +24,9 @@
         <script>
           caches.open( 'myCache' ).then( function( cache )
           {
+              respText = "console.log('hello');"
            cache.put('/my_workers/worker1.js',
-            new Response( "console.log('hello');", { headers: {'content-type':'application/javascript'}})
+            new Response( respText, { headers: {'content-length':respText.length, 'content-type':'application/javascript'}})
            );
           });
         </script>
