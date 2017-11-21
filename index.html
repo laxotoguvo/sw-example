@@ -7,9 +7,9 @@
             navigator.serviceWorker.register('https://soyemexaj.github.io/sw.js', {
                 // The scope cannot be parent to the script url
                 scope: './'
-            }).then(=>{
+            }).then(()=>{
                 console.log("Done");
-            }).catch( => {
+            }).catch(()=> {
              console.log("Catch");
             });
         </script>
