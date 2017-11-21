@@ -19,11 +19,7 @@
                 });
             })
         </script>
-        // Post code from window to ServiceWorker...
-        navigator.serviceWorker.controller.postMessage(
-         [ '/my_workers/worker1.js', '(' + workerFunction1.toString() + ')()' ]
-        );
-
+        <script>
         // Insert via ServiceWorker.onmessage. Or directly once window.caches is exposed
         caches.open( 'myCache' ).then( function( cache )
         {
@@ -31,5 +27,6 @@
           new Response( "console.log('hello');", { headers: {'content-type':'application/javascript'}})
          );
         });
+        </script>
     </body>
 </html>
